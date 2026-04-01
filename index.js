@@ -23,9 +23,14 @@ app.use(cors())
 const PORT = process.env.PORT || 3000
 
 // Conecta no Supabase usando as variáveis do .env
+if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_KEY) {
+  console.error('❌ Variáveis do Supabase não definidas')
+  process.exit(1)
+}
+
 const supabase = createClient(
   process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_KEY // usamos a service key (backend)
+  process.env.SUPABASE_SERVICE_KEY
 )
 
 // ─────────────────────────────────────────────
