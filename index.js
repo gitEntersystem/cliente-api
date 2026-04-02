@@ -14,7 +14,7 @@ const cors = require('cors')
 const app = express() 
 
 // Permite JSON
-app.use(express.json())
+app.use(express.json()) 
 
 // Libera acesso externo
 app.use(cors())
@@ -80,6 +80,6 @@ app.post('/clientes', async (req, res) => {
 // ─────────────────────────────────────────────
 // INICIAR SERVIDOR
 // ─────────────────────────────────────────────
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`)
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor rodando na porta ${PORT}`)
 })
